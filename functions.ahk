@@ -610,6 +610,11 @@ Send(keys)
   return
 }
 
+SendEvent(keys)
+{
+  SendEvent, %keys%
+}
+
 SendMessage(ByRef msg, w_param="", l_param="", control_name="", win_title="", win_text="", exclude_title="", exclude_text="")
 {
   SendMessage, %msg%, %w_param%, %l_param%, %control_name%, %win_title%, %win_text%, %exclude_title%, %exclude_text%
