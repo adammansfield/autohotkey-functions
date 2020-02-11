@@ -6,6 +6,16 @@ Click(x, y)
   return
 }
 
+ClipWait(timeout="", wait_for_any_data="")
+{
+  ClipWait, %timeout%, %wait_for_any_data%
+
+  if (1 == ErrorLevel)
+  {
+    throw _BuildException("ClipWait timed out; timeout=" timeout, ErrorLevel)
+  }
+}
+
 ControlClick(control_or_pos, win_title="", win_text="", which_button="", click_count="", options="", exclude_title="", exclude_text="")
 {
   ControlClick, %control_or_pos%, %win_title%, %win_text%, %which_time%, %click_count%, %options%, %exclude_title%, %exclude_text%
@@ -791,7 +801,7 @@ StringLower(ByRef string, t="")
   return result
 }
 
-StringMid(ByRef string, start_char, count, l="")
+StringMid(ByRef string, start_char, count="", l="")
 {
   StringMid, result, string, %start_char%, %count%, %l%
   return result
