@@ -52,6 +52,18 @@ ControlSendRaw(control_name="", keys="", win_title="", win_text="", exclude_titl
   return
 }
 
+DateAdd(DateTime, Time, TimeUnits)
+{
+	EnvAdd, DateTime, % Time, % TimeUnits
+	return DateTime
+}
+
+DateDiff(DateTime1, DateTime2, TimeUnits)
+{
+	EnvSub, DateTime1, % DateTime2, % TimeUnits
+	return DateTime1
+}
+
 DriveGet(cmd, value="")
 {
   DriveGet, result, %cmd%, %value%
@@ -197,6 +209,13 @@ FileSelectFolder(starting_folder="", options="", prompt="")
 {
   FileSelectFolder, result, %starting_folder%, %options%, %prompt%
   return result
+}
+
+FormatTime(YYYYMMDDHH24MISS:="", Format:="")
+{
+	local OutputVar
+	FormatTime, OutputVar, % YYYYMMDDHH24MISS, % Format
+	return OutputVar
 }
 
 GetKeyState(which_key , mode="")
